@@ -1,5 +1,5 @@
-This is a fork of RDT-Client to use Listenarr, RDT-Client, and Audiobookbay.
-
+# This is a fork of RDT-Client to use Listenarr, RDT-Client, and Audiobookbay.
+```
 rdtclient:
       # Pulls your pre-built, patched image from GitHub Packages
       image: ghcr.io/gitsumhubs/rdt-client-listenarr-magnets:latest
@@ -17,7 +17,7 @@ rdtclient:
       ports:
         - "6500:6500"
       restart: unless-stopped
-
+```
 # Real-Debrid Torrent Client
 
 This is a web interface to manage your torrents on Real-Debrid, AllDebrid, Premiumize TorBox or DebridLink. It supports the following features:
