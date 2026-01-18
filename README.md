@@ -1,3 +1,23 @@
+This is a fork of RDT-Client to use Listenarr, RDT-Client, and Audiobookbay.
+
+rdtclient:
+      # Pulls your pre-built, patched image from GitHub Packages
+      image: ghcr.io/gitsumhubs/rdt-client-listenarr-magnets:latest
+      container_name: rdtclient
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - UMASK=002
+        - TZ=America/Detroit
+      volumes:
+        # On a new machine, this will create a 'config' folder in the same directory as the docker-compose.yml
+        - ./config:/data/db
+        # IMPORTANT: Change this to the downloads folder on your new server
+        - /path/to/your/downloads:/downloads
+      ports:
+        - "6500:6500"
+      restart: unless-stopped
+
 # Real-Debrid Torrent Client
 
 This is a web interface to manage your torrents on Real-Debrid, AllDebrid, Premiumize TorBox or DebridLink. It supports the following features:
