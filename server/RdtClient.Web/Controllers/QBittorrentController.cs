@@ -331,8 +331,17 @@ public class QBittorrentController(ILogger<QBittorrentController> logger, QBitto
                 else if (url.StartsWith("http"))
                 {
                     var httpClient = new HttpClient();
-                    var result = await httpClient.GetByteArrayAsync(url);
-                    await qBittorrent.TorrentsAddFile(result, request.Category, null);
+                    var content = await httpClient.GetStringAsync(url);
+
+                    if (content.StartsWith("magnet"))
+                    {
+                        await qBittorrent.TorrentsAddMagnet(content.Trim(), request.Category, null);
+                    }
+                    else
+                    {
+                        var result = await httpClient.GetByteArrayAsync(url);
+                        await qBittorrent.TorrentsAddFile(result, request.Category, null);
+                    }
                 }
                 else
                 {
