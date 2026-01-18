@@ -137,6 +137,7 @@ Finally, deploy Listenarr as you normally would and configure it to connect all 
     *   In Listenarr `Settings` > `Indexers`, add a `Torznab` indexer.
     *   **Crucially, point it to your `torznab-proxy`**, not directly to Prowlarr. The URL will look something like this (replacing the IP and indexer ID from your Prowlarr):
 
+# Original Readme info:
              
 # Real-Debrid Torrent Client
 
