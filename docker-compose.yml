@@ -1,0 +1,16 @@
+services:
+  rdtclient:
+    build: .
+    image: rdt-client-patched:latest
+    container_name: rdtclient
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=America/Detroit
+    volumes:
+      - ./config:/data/db
+      - /media/NAS/mediastorage/Video/Downloads:/downloads
+    ports:
+      - "6500:6500"
+    restart: unless-stopped
